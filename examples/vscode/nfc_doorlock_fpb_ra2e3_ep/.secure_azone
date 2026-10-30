@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<azone>
+    <rzone name="R7FA2E3073CFL.rzone"/>
+    <partition>
+        <peripheral name="PORT0.CM23" group="PORT">
+            <slot name="P015.CM23" secure="false"/>
+        </peripheral>
+        <peripheral name="PORT1.CM23" group="PORT">
+            <slot name="P100.CM23" secure="false"/>
+            <slot name="P101.CM23" secure="false"/>
+            <slot name="P102.CM23" secure="false"/>
+            <slot name="P103.CM23" secure="false"/>
+            <slot name="P108.CM23" secure="false"/>
+            <slot name="P109.CM23" secure="false"/>
+            <slot name="P110.CM23" secure="false"/>
+        </peripheral>
+        <peripheral name="PORT2.CM23" group="PORT">
+            <slot name="P212.CM23" secure="false"/>
+            <slot name="P213.CM23" secure="false"/>
+        </peripheral>
+        <peripheral name="PORT3.CM23" group="PORT">
+            <slot name="P300.CM23" secure="false"/>
+            <slot name="P301.CM23" secure="false"/>
+        </peripheral>
+        <peripheral name="PORT9.CM23" group="PORT">
+            <slot name="P914.CM23" secure="false"/>
+        </peripheral>
+        <peripheral name="SCI9.CM23" group="SCI" security=""/>
+        <peripheral name="GPT4.CM23" group="GPT" security=""/>
+        <peripheral name="SCI0.CM23" group="SCI" security=""/>
+        <peripheral name="ICU_EXT_IRQ.CM23">
+            <slot name="ICU_EXT_IRQ7.CM23" secure="false"/>
+        </peripheral>
+        <peripheral name="GPT7.CM23" group="GPT" security=""/>
+        <peripheral name="ICU.CM23">
+            <slot name="IRQ0.CM23" secure="false"/>
+            <slot name="IRQ1.CM23" secure="false"/>
+            <slot name="IRQ2.CM23" secure="false"/>
+            <slot name="IRQ3.CM23" secure="false"/>
+            <slot name="IRQ4.CM23" secure="false"/>
+            <slot name="IRQ5.CM23" secure="false"/>
+            <slot name="IRQ6.CM23" secure="false"/>
+            <slot name="IRQ7.CM23" secure="false"/>
+            <slot name="IRQ14.CM23" secure="false"/>
+            <slot name="IRQ15.CM23" secure="false"/>
+        </peripheral>
+    </partition>
+</azone>

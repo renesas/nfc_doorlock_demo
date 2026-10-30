@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <style type="text/css">:root {
+--brand: #2b0a8c;
+--accent: #e6007e;
+--ink: #1f2430;
+--muted: #667085;
+--line: #e4e7ec;
+--surface: #f7f7fb;
+}
+* {
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+}
+body {
+margin: 0 auto;
+max-width: 1120px;
+padding: 50px;
+color: var(--ink);
+background: #ffffff;
+font-family: "Segoe UI", Arial, sans-serif;
+line-height: 1.65;
+}
+a {
+color: var(--brand);
+}
+a:hover {
+color: var(--accent);
+}
+h1 {
+margin-top: 2.7rem;
+padding-bottom: 0.35rem;
+border-bottom: 2px solid var(--line);
+}
+h2 {
+margin-top: 2.4rem;
+padding-bottom: 0.3rem;
+border-bottom: 1px solid var(--line);
+}
+h3,
+h4,
+h5,
+h6 {
+margin-top: 2rem;
+}
+img {
+display: block;
+max-width: 100%;
+height: auto;
+margin: 1rem auto 0.35rem;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 1.25rem 0;
+}
+th,
+td {
+border: 1px solid var(--line);
+padding: 0.7rem;
+vertical-align: top;
+}
+th {
+background: var(--surface);
+text-align: left;
+}
+blockquote {
+margin: 1.2rem 0;
+padding: 0.7rem 1rem;
+border-left: 4px solid var(--brand);
+background: var(--surface);
+}
+code {
+font-family: Consolas, "Courier New", monospace;
+}
+pre {
+overflow-x: auto;
+padding: 1rem;
+border-radius: 8px;
+background: var(--surface);
+}
+
+body > h1:first-of-type {
+margin: -50px calc(50% - 50vw) 3rem;
+padding: 3.5rem max(50px, calc((100vw - 1120px) / 2));
+border: 0;
+background: linear-gradient(135deg, #250777, #3e16a3);
+color: #ffffff;
+font-size: clamp(2rem, 5vw, 3.5rem);
+line-height: 1.1;
+}
+@media (max-width: 640px) {
+body {
+padding: 20px;
+}
+body > h1:first-of-type {
+margin-top: -20px;
+padding: 2.5rem 20px;
+}
+}
+</style>
+</head>
+<body>
+<h1 id="nfc-door-lock--ptx105r">NFC Door Lock — PTX105R</h1>
+<p>A ready-to-run, hardware-independent NFC card reader for Renesas RA
+microcontrollers with servo functionality to simulate a doorlock, built
+on the PTX105R NFC front-end. The NFC workflow — discovery, activation,
+NDEF read, callback dispatch and deactivation — is fully encapsulated in
+a reusable module with a two-function public API, so the application
+never touches the PTX SDK.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr>
+<td><strong>NFC IC</strong></td>
+<td>PTX105R — ISO 14443-A/B · NFC-F (FeliCa) · ISO 15693</td>
+</tr>
+<tr>
+<td><strong>Software</strong></td>
+<td>Renesas FSP 6.5.0 + FreeRTOS 11.1.0 +
+<code>rm_nfc_reader_ptx_sdk</code> (PTX pack 3.0.0+fsp.6.5.0)</td>
+</tr>
+<tr>
+<td><strong>Build</strong></td>
+<td>e² studio CMake project · CMake + Ninja · Arm Toolchain for Embedded
+(LLVM / ATfE 21.1.1, picolibc)</td>
+</tr>
+<tr>
+<td><strong>Reference board</strong></td>
+<td>FPB-RA2E3 · <code>R7FA2E3073CFL</code> (Cortex-M23, 64 KB code
+flash)</td>
+</tr>
+<tr>
+<td><strong>Additional HW</strong></td>
+<td>SG90 Servo (NOTE: signal on P301)</td>
+</tr>
+<tr>
+<td><strong>Public API</strong></td>
+<td><code>rs_nfc_reader_Read()</code> ·
+<code>rs_nfc_reader_Stop()</code> (single header)</td>
+</tr>
+<tr>
+<td><strong>Scope</strong></td>
+<td>Read-only reader — NDEF write/erase is not implemented</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol type="1">
+<li><a href="#overview">Overview</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#build-and-run">Build and Run</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#porting-to-your-own-hardware">Porting to Your Own
+Hardware</a></li>
+<li><a href="#error-handling">Error Handling</a></li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#references">References</a></li>
+</ol>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>Once running, the firmware continuously polls for NFC cards. On each
+detection it identifies the card type and UID, attempts an NDEF read,
+decodes the NDEF records, fires an application callback, then returns to
+polling — no code changes are needed when switching card types.</p>
+<p>The NFC logic lives in <code>src/rs-nfc-card-reader/</code>. It is
+written against a single vendor HAL header, so the PTX105R backend can
+be replaced without touching the protocol orchestration or the
+application. The demo application in <code>src/app/</code> is a thin
+consumer: it configures the module, prints card information over the
+debug console, and (optionally) toggles LEDs.</p>
+<p>The module calls the PTX IoT-Reader SDK (<code>ptxIoTRd_*</code>)
+directly. The <code>RM_NFC_READER_PTX</code> FSP wrapper is
+intentionally bypassed.</p>
+<h3 id="supported-tags">Supported Tags</h3>
+<table>
+<thead>
+<tr>
+<th>NFC Standard</th>
+<th>Tag Type</th>
+<th>Example Cards</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISO 14443-A</td>
+<td>Type 2 (T2T)</td>
+<td>MIFARE Ultralight, NTAG21x</td>
+</tr>
+<tr>
+<td>ISO 14443-A</td>
+<td>Type 4A (T4A)</td>
+<td>MIFARE DESFire, ISO-DEP</td>
+</tr>
+<tr>
+<td>ISO 14443-B</td>
+<td>Type 4B (T4B)</td>
+<td>ISO 14443-4 Type B cards</td>
+</tr>
+<tr>
+<td>NFC-F / FeliCa</td>
+<td>Type 3 (T3T)</td>
+<td>FeliCa Lite, FeliCa Standard</td>
+</tr>
+<tr>
+<td>ISO 15693</td>
+<td>Type 5 (T5T)</td>
+<td>NFC-V tags (ICODE SLIX, …)</td>
+</tr>
+</tbody>
+</table>
+<p>NDEF read is supported for all five tag types.</p>
+<hr />
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Two public functions</strong> —
+<code>rs_nfc_reader_Read()</code> and
+<code>rs_nfc_reader_Stop()</code>.</li>
+<li><strong>One public header</strong> — <code>rs_nfc_reader.h</code>;
+nothing else needs to be included by the application.</li>
+<li><strong>Blocking or non-blocking</strong> — supplying a completion
+callback spawns a dedicated worker task and returns immediately;
+omitting it runs the read loop inline.</li>
+<li><strong>Static allocation in the module</strong> — the worker task,
+its TCB and its 4 KB stack are statically allocated, and the NFC module
+never calls <code>malloc</code> — see <a href="#heap">Heap</a>.</li>
+<li><strong>Idle-free polling</strong> — the read loop blocks on the
+reader IRQ (or a task notification from <code>Stop()</code>), not on a
+periodic timer.</li>
+<li><strong>NDEF decoded for you</strong> — records are parsed into
+<code>result-&gt;decoded</code> before the card callback fires.</li>
+<li><strong>Vendor isolation</strong> — all PTX105R specifics sit behind
+<code>ptx105r/rs_nfc_ptx105r.h</code>; replace the <code>ptx105r/</code>
+folder to move to another NFC front-end.</li>
+<li><strong>Optional raw exchange</strong> — a protocol-appropriate raw
+frame exchange (T2T READ / T3T CHECK / T5T READ_SINGLE_BLOCK) can be
+enabled for diagnostics.</li>
+</ul>
+<hr />
+<h2 id="requirements">Requirements</h2>
+<h3 id="tools">Tools</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Renesas FSP <strong>6.5.0</strong></td>
+<td>Supplies the BSP, drivers and FreeRTOS port</td>
+</tr>
+<tr>
+<td>PTX NFC pack <code>Renesas.PTX.3.0.0+fsp.6.5.0.pack</code></td>
+<td>Supplies <code>rm_nfc_reader_ptx</code> /
+<code>rm_nfc_reader_ptx_sdk</code>; must be installed in the FSP
+<code>internal/projectgen/ra/packs</code> folder, otherwise generation
+silently omits the NFC files</td>
+</tr>
+<tr>
+<td>e² studio 2026-04 (or later) with FSP 6.5.0</td>
+<td>IDE, FSP configurator and bundled CMake 3.27.6 + Ninja</td>
+</tr>
+<tr>
+<td>RA Smart Configurator (RASC) 6.5.0</td>
+<td>Only for command-line (non-e² studio) generation of
+<code>ra/</code>, <code>ra_gen/</code>, <code>ra_cfg/</code></td>
+</tr>
+<tr>
+<td>CMake ≥ 3.25 + Ninja</td>
+<td>Command-line builds via <code>CMakePresets.json</code></td>
+</tr>
+<tr>
+<td>Arm Toolchain for Embedded (LLVM) 21.1.1</td>
+<td><code>clang</code> / <code>ld.lld</code> with picolibc —
+<code>cmake/llvm.cmake</code></td>
+</tr>
+<tr>
+<td>Serial terminal</td>
+<td>Optional, for the demo console output</td>
+</tr>
+</tbody>
+</table>
+<p>Environment variables consumed by the build:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Points at</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ARM_LLVM_TOOLCHAIN_PATH</code> (or
+<code>ARM_TOOLCHAIN_PATH</code>)</td>
+<td>LLVM toolchain <code>bin</code> folder,
+e.g. <code>…\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>RASC_EXE_PATH</code></td>
+<td><code>rasc.exe</code></td>
+<td>Command-line builds only</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!NOTE] Inside e² studio, <code>Config.cmake</code> sets
+<code>RASC_EXE_PATH</code> to <code>echo</code> because the IDE runs the
+pre-/post-build steps itself. Outside e² studio,
+<code>Config.cmake</code> stops with a fatal error when
+<code>RASC_EXE_PATH</code> is not set.</p>
+</blockquote>
+<h3 id="mcu-peripherals">MCU Peripherals</h3>
+<p>The PTX105R integration is MCU-agnostic, but the target device must
+be able to provide:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPI-capable channel (SCI in SPI mode)</td>
+<td>PTX105R host interface — master, 1 MHz, CPOL=0, CPHA=0, MSB
+first</td>
+</tr>
+<tr>
+<td>GPIO output</td>
+<td>Chip select (active-low, software driven)</td>
+</tr>
+<tr>
+<td>External IRQ-capable pin</td>
+<td>Rising-edge interrupt from the PTX105R</td>
+</tr>
+<tr>
+<td>DTC/DMAC channels (TX + RX)</td>
+<td>Zero-CPU SPI transfers</td>
+</tr>
+<tr>
+<td>2 × GPT timer channels</td>
+<td>PTX timing services</td>
+</tr>
+<tr>
+<td>Regulated 3.3 V rail</td>
+<td>PTX105R supply</td>
+</tr>
+<tr>
+<td>UART channel <em>(optional)</em></td>
+<td>Console/log output only</td>
+</tr>
+<tr>
+<td>16-bit timer</td>
+<td>Servo operation</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!IMPORTANT] The NFC module itself has <strong>no UART
+dependency</strong> and runs headless. UART is required only by the demo
+application’s logging.</p>
+</blockquote>
+<h3 id="reference-configuration">Reference Configuration</h3>
+<p>The <code>configuration.xml</code> shipped with this project is
+generated for the following setup. It is a starting point, not a
+constraint — re-target it to your own device and pin map as described in
+<a href="#porting-to-your-own-hardware">Porting to Your Own
+Hardware</a>.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Board</td>
+<td>FPB-RA2E3</td>
+</tr>
+<tr>
+<td>Device / core</td>
+<td><code>R7FA2E3073CFL</code> · Arm Cortex-M23 (<code>CM23</code>)</td>
+</tr>
+<tr>
+<td>FSP</td>
+<td>6.5.0</td>
+</tr>
+<tr>
+<td>Toolchain</td>
+<td>LLVM (ATfE 21.1.1), picolibc</td>
+</tr>
+<tr>
+<td>RTOS</td>
+<td>FreeRTOS 11.1.0 (FSP <code>rm_freertos_port</code>), static +
+dynamic allocation, <code>heap_4</code></td>
+</tr>
+<tr>
+<td>SPI</td>
+<td>SCI0 SPI master (<code>ptx_pmod_spi</code>) · 1 MHz · CPOL=0 ·
+CPHA=0 · MSB first</td>
+</tr>
+<tr>
+<td>PTX IRQ</td>
+<td>External IRQ7 on P015, rising edge</td>
+</tr>
+<tr>
+<td>Console UART</td>
+<td><code>g_uart_jlob_vcom</code> (SCI9) · 230400 8N1</td>
+</tr>
+<tr>
+<td>Linker script</td>
+<td><code>script/fsp.lld</code> (LLVM <code>ld.lld</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="build-and-run">Build and Run</h2>
+<h3 id="1-open-the-project">1. Open the project</h3>
+<p>The project is an <strong>e² studio CMake project</strong> (not a
+managed-build project). Import it into an e² studio 2026-04 (or later)
+workspace with FSP 6.5.0 and the PTX 3.0.0+fsp.6.5.0 pack installed. It
+also carries Renesas365 metadata (<code>metadata.r365.xml</code>) and
+opens in VS Code via <code>NFC_Reader_PTX105R.code-workspace</code>.</p>
+<h3 id="2-generate-fsp-content">2. Generate FSP content</h3>
+<p><code>ra/</code>, <code>ra_gen/</code>, <code>ra_cfg/</code> and
+<code>cmake/GeneratedCfg.cmake</code> /
+<code>cmake/GeneratedSrc.cmake</code> are generated from
+<code>configuration.xml</code>. Regenerate once per fresh clone and
+again after editing <code>configuration.xml</code>:</p>
+<ul>
+<li><strong>e² studio</strong> — open <code>configuration.xml</code> and
+press <strong>Generate Project Content</strong>.</li>
+<li><strong>Command line</strong> — with <code>RASC_EXE_PATH</code>
+pointing at RASC 6.5.0:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-P</span> cmake/prebuild.cmake</span></code></pre></div>
+<h3 id="3-configure-and-build">3. Configure and build</h3>
+<p><strong>In e² studio</strong> — right-click the project →
+<strong>Build Project</strong> (or the hammer icon). The IDE uses its
+bundled CMake 3.27.6 + Ninja, runs the FSP pre-build step
+(<code>bsp_linker_info.h</code>, <code>fsp_gen.lld</code>,
+<code>memory_regions.lld</code>) and builds into
+<code>build/cmake.arm.debug.R7FA2E307/</code>.</p>
+<p><strong>From the command line</strong> — using the bundled presets
+(requires <code>ARM_LLVM_TOOLCHAIN_PATH</code> and
+<code>RASC_EXE_PATH</code>):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--preset</span> DebugCI</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> <span class="at">--preset</span> DebugCI</span></code></pre></div>
+<p>Or explicitly:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-DCMAKE_TOOLCHAIN_FILE</span><span class="op">=</span>cmake/llvm.cmake <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Debug <span class="at">-G</span> Ninja <span class="at">-B</span> build/Debug</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build/Debug</span></code></pre></div>
+<p>A <code>ReleaseCI</code> preset is available as well. Artifacts are
+named after the CMake project
+(<code>project(NFC_Reader_PTX105R …)</code> in
+<code>CMakeLists.txt</code>): <code>NFC_Reader_PTX105R.elf</code>,
+<code>.map</code>, <code>.hex</code> and <code>.sbd</code>.</p>
+<blockquote>
+<p>[!WARNING] <code>CMakeLists.txt</code> replaces every RASC
+optimisation flag with <strong><code>-Oz</code></strong> in all build
+configurations. With RASC’s default <code>-O2</code> the image is ~3 KB
+larger than the 64 KB code flash of the <code>R7FA2E3073CFL</code>; with
+<code>-Oz</code> about 0.5 KB remains free. The override lives in
+<code>CMakeLists.txt</code> because RASC rewrites
+<code>cmake/GeneratedCfg.cmake</code> on every generate.</p>
+</blockquote>
+<p><code>CMakeLists.txt</code> also adds the following on top of the
+RASC-generated files:</p>
+<ul>
+<li><code>-Wl,--defsym=vfprintf=__l_vfprintf</code> — links picolibc’s
+integer-only <code>printf</code> (the default float-capable one does not
+fit in flash).</li>
+<li><code>-w</code> on vendor sources under <code>ra/renesas/</code> —
+the PTX SDK does not build cleanly with RASC’s strict warning set;
+first-party <code>src/</code> warnings stay visible.</li>
+<li>Include paths for <code>src/rs-nfc-card-reader</code>,
+<code>src/rs-nfc-card-reader/ptx105r</code>, <code>src/app</code> and
+<code>src/rs-console-io</code>.</li>
+<li>A default <code>CMAKE_TOOLCHAIN_FILE</code> of
+<code>cmake/llvm.cmake</code> — e² studio does not pass a toolchain
+file, and without it CMake would pick up GCC.</li>
+<li>Conversion of <code>ARM_LLVM_TOOLCHAIN_PATH</code> /
+<code>ARM_TOOLCHAIN_PATH</code> to forward slashes — required by the
+CMake 3.27 bundled with e² studio.</li>
+</ul>
+<h3 id="4-flash-and-debug">4. Flash and debug</h3>
+<p>Debug with the on-board J-Link (FPB-RA2E3) using the e² studio debug
+launch configuration, or the bundled VS Code / Theia launch
+configurations (<code>.vscode/launch.json</code>,
+<code>.theia/launch.json</code>, target device <code>R7FA2E307</code>).
+Point the launch configuration’s program/image at
+<code>build/&lt;config&gt;/NFC_Reader_PTX105R.elf</code>. Execution
+reaches the application through:</p>
+<pre class="text"><code>main()                       ← FSP generated
+└─ new_thread0_entry()       ← FreeRTOS thread
+   └─ app_nfc_reader_entry()
+      └─ rs_nfc_reader_Read()  ← spawns the &quot;RS_NFC&quot; worker task</code></pre>
+<h3 id="5-observe">5. Observe</h3>
+<p>If the console UART is enabled, open a serial terminal at the
+configured baud (230400 8N1 by default). On startup:</p>
+<pre class="text"><code>System Initialization (RS NFC Reader) ... starting
+RS NFC Reader launched (non-blocking)</code></pre>
+<p>Present a card to the antenna:</p>
+<pre class="text"><code>CARD DETECTED! type=NFC-T4A UID=02840017810196 NDEF=15B
+RF Technology  : TYPE A
+Tag Type       : ISO-DEP (Type 4 Tag / ISO 14443-4)
+Serial Number  : 02:84:00:17:81:01:96
+Size           : 8192 bytes
+Writeable      : Yes
+NDEF           : 15 bytes
+  NDEF raw (15 bytes): D1 01 0B 54 02 65 6E 59 4F 20 45 4C 49 4E 41</code></pre>
+<p>Optional LED feedback is compiled in via
+<code>APP_NFC_READER_LED_EN</code> in
+<code>src/app/app_nfc_reader.h</code>; both configured LEDs are driven
+high while a card is being processed — comment the macro out to remove
+the LED code entirely.</p>
+<hr />
+<h2 id="usage">Usage</h2>
+<h3 id="starting-the-reader">Starting the Reader</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;rs_nfc_reader.h&quot;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;string.h&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">/* Fires once per detected and activated card.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * `result` and `summary` are valid ONLY inside this call — copy what you need. */</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="dt">static</span> <span class="dt">void</span> my_card_event <span class="op">(</span>rs_status_t                  status<span class="op">,</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                           <span class="dt">const</span> rs_nfc_card_result_t <span class="op">*</span> result<span class="op">,</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                           <span class="dt">const</span> <span class="dt">char</span>                 <span class="op">*</span> summary<span class="op">,</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                           <span class="dt">void</span>                       <span class="op">*</span> p_context<span class="op">)</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">(</span><span class="dt">void</span><span class="op">)</span>p_context<span class="op">;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">(</span><span class="dt">void</span><span class="op">)</span>status<span class="op">;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>NULL <span class="op">==</span> result<span class="op">)</span>         <span class="co">/* informational / warning event */</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>result<span class="op">-&gt;</span>ndef_present<span class="op">)</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">/* result-&gt;ndef_data holds result-&gt;ndef_len bytes,</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co">         * result-&gt;decoded holds the parsed records. */</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">/* Fires once when a non-blocking Read() completes. */</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="dt">static</span> <span class="dt">void</span> my_operation_done <span class="op">(</span>rs_status_t status<span class="op">,</span> <span class="dt">void</span> <span class="op">*</span> p_context<span class="op">)</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">(</span><span class="dt">void</span><span class="op">)</span>p_context<span class="op">;</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">(</span><span class="dt">void</span><span class="op">)</span>status<span class="op">;</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> app_start <span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    rs_nfc_reader_cfg_t cfg<span class="op">;</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    memset<span class="op">(&amp;</span>cfg<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>cfg<span class="op">));</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>tech_mask             <span class="op">=</span> RS_NFC_TECH_ALL<span class="op">;</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>timeout_ms            <span class="op">=</span> RS_NFC_TIMEOUT_INFINITE<span class="op">;</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>retry_count           <span class="op">=</span> RS_NFC_RETRY_DISABLED<span class="op">;</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>read_ndef             <span class="op">=</span> RS_NFC_NDEF_READ_ENABLED<span class="op">;</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>max_ndef_bytes        <span class="op">=</span> RS_NFC_NDEF_MAX_BYTES<span class="op">;</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>run_raw_exchange      <span class="op">=</span> RS_NFC_RAW_EXCHANGE_ENABLED<span class="op">;</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>callback              <span class="op">=</span> my_operation_done<span class="op">;</span>   <span class="co">/* non-NULL =&gt; non-blocking */</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>p_context             <span class="op">=</span> RS_NFC_CONTEXT_NONE<span class="op">;</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>on_card_event         <span class="op">=</span> my_card_event<span class="op">;</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>p_card_event_context  <span class="op">=</span> RS_NFC_CONTEXT_NONE<span class="op">;</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>validate_dependencies <span class="op">=</span> RS_NFC_DEP_VALIDATION_DISABLED<span class="op">;</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    cfg<span class="op">.</span>cfg_valid_check_en    <span class="op">=</span> RS_NFC_CFG_VALIDATION_ENABLED<span class="op">;</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* Non-blocking: pass NULL for result_out so the worker uses its own</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="co">     * task-local buffer. A caller-local buffer would dangle on return. */</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>    <span class="op">(</span><span class="dt">void</span><span class="op">)</span>rs_nfc_reader_Read<span class="op">(&amp;</span>cfg<span class="op">,</span> NULL<span class="op">);</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Stop a running read at any time — from another task, an ISR-deferred
+handler, or a timeout:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>rs_status_t st <span class="op">=</span> rs_nfc_reader_Stop<span class="op">();</span></span></code></pre></div>
+<h3 id="configuration--rs_nfc_reader_cfg_t">Configuration —
+<code>rs_nfc_reader_cfg_t</code></h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tech_mask</code></td>
+<td><code>rs_nfc_tech_mask_t</code></td>
+<td>RF technologies to poll. Use <code>RS_NFC_TECH_ALL</code> or OR the
+individual <code>RS_NFC_TECH_*</code> flags. Must be non-zero.</td>
+</tr>
+<tr>
+<td><code>timeout_ms</code></td>
+<td><code>uint32_t</code></td>
+<td>Run duration of <code>Read()</code>.
+<code>RS_NFC_TIMEOUT_INFINITE</code> loops forever.</td>
+</tr>
+<tr>
+<td><code>retry_count</code></td>
+<td><code>uint8_t</code></td>
+<td>Per-operation retry budget. <code>RS_NFC_RETRY_DISABLED</code> (0)
+disables retries.</td>
+</tr>
+<tr>
+<td><code>read_ndef</code></td>
+<td><code>bool</code></td>
+<td>Read and decode NDEF content for each detected card.</td>
+</tr>
+<tr>
+<td><code>max_ndef_bytes</code></td>
+<td><code>uint16_t</code></td>
+<td>Upper bound on the NDEF payload copied into
+<code>result-&gt;ndef_data</code>; clamped to
+<code>RS_NFC_NDEF_MAX_BYTES</code> (512).</td>
+</tr>
+<tr>
+<td><code>run_raw_exchange</code></td>
+<td><code>bool</code></td>
+<td>Perform a protocol-appropriate raw frame exchange after activation
+and expose it via <code>result-&gt;raw_exchange</code>. No effect for
+ISO-DEP.</td>
+</tr>
+<tr>
+<td><code>callback</code></td>
+<td><code>rs_nfc_callback_t</code></td>
+<td>Completion callback. <code>NULL</code> selects blocking mode;
+non-<code>NULL</code> selects non-blocking mode.</td>
+</tr>
+<tr>
+<td><code>p_context</code></td>
+<td><code>void *</code></td>
+<td>User context passed back to <code>callback</code>.</td>
+</tr>
+<tr>
+<td><code>on_card_event</code></td>
+<td><code>rs_nfc_card_event_cb_t</code></td>
+<td>Per-card callback — the primary application hook. When set, the
+reader runs in continuous-loop mode.</td>
+</tr>
+<tr>
+<td><code>p_card_event_context</code></td>
+<td><code>void *</code></td>
+<td>User context passed back to <code>on_card_event</code>.</td>
+</tr>
+<tr>
+<td><code>validate_dependencies</code></td>
+<td><code>bool</code></td>
+<td>Check that the lower-level PTX105R stack is ready before
+starting.</td>
+</tr>
+<tr>
+<td><code>cfg_valid_check_en</code></td>
+<td><code>bool</code></td>
+<td>Gate for config validation inside <code>Read()</code>. A
+<code>memset</code> to zero disables it, so set it explicitly to
+<code>true</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="result--rs_nfc_card_result_t">Result —
+<code>rs_nfc_card_result_t</code></h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>card_type</code></td>
+<td><code>rs_nfc_card_type_t</code></td>
+<td>Normalised classification (T2T, T3T, T4A, T4B, T5T, …).</td>
+</tr>
+<tr>
+<td><code>protocol</code></td>
+<td><code>ptxIoTRd_CardProtocol_t</code></td>
+<td>Active RF protocol reported by the PTX SDK.</td>
+</tr>
+<tr>
+<td><code>uid</code> / <code>uid_len</code></td>
+<td><code>uint8_t[10]</code> / <code>uint8_t</code></td>
+<td>Card UID and its valid length.</td>
+</tr>
+<tr>
+<td><code>ndef_present</code></td>
+<td><code>bool</code></td>
+<td>An NDEF message was found on the card.</td>
+</tr>
+<tr>
+<td><code>ndef_data</code> / <code>ndef_len</code></td>
+<td><code>uint8_t[512]</code> / <code>uint16_t</code></td>
+<td>Raw NDEF message buffer and its length.</td>
+</tr>
+<tr>
+<td><code>decoded</code></td>
+<td><code>rs_ndef_decoded_t</code></td>
+<td>Parsed NDEF records (up to 8). Each record’s <code>payload</code>
+points into <code>ndef_data</code>.</td>
+</tr>
+<tr>
+<td><code>rssi_dbm</code></td>
+<td><code>int8_t</code></td>
+<td>Optional RF signal strength; <code>0</code> when unsupported.</td>
+</tr>
+<tr>
+<td><code>read_time_ms</code></td>
+<td><code>uint32_t</code></td>
+<td>Time spent on the current card event.</td>
+</tr>
+<tr>
+<td><code>data_area_size</code></td>
+<td><code>uint32_t</code></td>
+<td>Tag capacity derived from the capability container.</td>
+</tr>
+<tr>
+<td><code>writeable</code></td>
+<td><code>bool</code></td>
+<td>Tag reports write access (informational — this firmware never
+writes).</td>
+</tr>
+<tr>
+<td><code>tag_type_name</code></td>
+<td><code>const char *</code></td>
+<td>Human-readable tag description. Static string; do not free.</td>
+</tr>
+<tr>
+<td><code>raw_exchange</code></td>
+<td><code>rs_nfc_raw_exchange_t</code></td>
+<td>Last raw exchange snapshot. Check <code>.valid</code> before
+use.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!IMPORTANT] The result struct and the <code>summary</code> string
+are <strong>reused on the next card event</strong>. Copy anything you
+need before the callback returns, and never retain the
+<code>decoded[].payload</code>, <code>raw_exchange.tx</code> or
+<code>raw_exchange.rx</code> pointers.</p>
+</blockquote>
+<hr />
+<h2 id="architecture">Architecture</h2>
+<h3 id="layers">Layers</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Responsibility</th>
+<th>Key files</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>Product behaviour — logging, LEDs, when to read</td>
+<td><code>src/app/</code>, <code>src/new_thread0_entry.c</code></td>
+</tr>
+<tr>
+<td>NFC reader module</td>
+<td>NFC state machine: discover → activate → read → callback →
+deactivate</td>
+<td><code>src/rs-nfc-card-reader/rs_nfc_reader.c</code>,
+<code>rs_ndef_read.c</code></td>
+</tr>
+<tr>
+<td>PTX105R adapter</td>
+<td>Translates module calls into PTX SDK operations</td>
+<td><code>src/rs-nfc-card-reader/ptx105r/</code></td>
+</tr>
+<tr>
+<td>PTX SDK + FSP drivers</td>
+<td>NFC protocol engine and MCU peripheral access</td>
+<td><code>ptxIoTRd_*</code>, <code>ptxPLAT_*</code>, SCI SPI, external
+IRQ, GPT, DTC</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>RF front-end and MCU</td>
+<td>PTX105R + RA MCU</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    A[Application layer] --&gt;|rs_nfc_reader_Read / Stop| B[NFC reader module]
+    B --&gt;|rs_nfc_ptx_*| C[PTX105R adapter]
+    C --&gt;|ptxIoTRd_* / ptxPLAT_*| D[PTX SDK + FSP drivers]
+    D --&gt;|SPI / IRQ / timer / GPIO| E[PTX105R hardware]
+    E --&gt; D
+    D --&gt; C
+    C --&gt; B
+    B --&gt;|card event result| A</code></pre>
+<p>One runtime cycle: the application starts the reader, the worker task
+configures and starts discovery, blocks on the reader IRQ, activates the
+detected card, reads card info and NDEF, fires
+<code>on_card_event</code>, deactivates the card and returns to
+discovery.</p>
+<h3 id="project-layout">Project Layout</h3>
+<pre class="text"><code>pes-nfc-card-reader/
+├── src/
+│   ├── hal_entry.c                    BSP warm-start hook and FreeRTOS hooks
+│   ├── new_thread0_entry.c            RTOS thread that starts the application
+│   ├── app/
+│   │   ├── app_nfc_reader.c/.h        App entry, card-event callback, LED helpers
+│   │   └── app_nfc_reader_log.c/.h    Console log and card-info printing
+│   ├── rs-nfc-card-reader/
+│   │   ├── rs_nfc_reader.h            Public API — the single include
+│   │   ├── rs_nfc_reader.c            Orchestrator + &quot;RS_NFC&quot; worker task
+│   │   ├── rs_ndef_read.c             NDEF read + record decode
+│   │   └── ptx105r/
+│   │       ├── rs_nfc_ptx105r.c       PTX105R backend (direct ptxIoTRd_* calls)
+│   │       ├── rs_nfc_ptx105r.h       Vendor HAL contract — the porting seam (also declares the
+│   │       │                          module-internal rs_ndef_read_card_info())
+│   │       └── rs_nfc_ptx105r_board.h Integrator-supplied board symbols
+│   └── rs-console-io/
+│       ├── syscalls_picolib_stdio_to_uart.c  picolibc stdio retarget over UART
+│       └── r_byteq.c/.h               UART transmit ring buffer
+├── cmake/
+│   ├── llvm.cmake                     [generated] LLVM (ATfE) toolchain file
+│   ├── GeneratedCfg.cmake             [generated] compiler/linker flags
+│   ├── GeneratedSrc.cmake             [generated] source globs and targets
+│   └── prebuild.cmake                 [generated] headless RASC generation
+├── script/fsp.lld                     Linker script (ld.lld)
+├── configuration.xml                  FSP 6.5.0 stacks + pin configuration
+├── metadata.r365.xml                  Renesas365 PES metadata
+├── CMakeLists.txt / CMakePresets.json / CMakeProject.json / Config.cmake
+├── ra/                                [generated] FSP, CMSIS, FreeRTOS, PTX SDK
+├── ra_gen/                            [generated] FSP project content
+└── ra_cfg/                            [generated] FSP configuration headers</code></pre>
+<blockquote>
+<p>[!CAUTION] Never hand-edit <code>ra/</code>, <code>ra_gen/</code> or
+<code>ra_cfg/</code>. They are regenerated whenever
+<code>configuration.xml</code> is saved or
+<code>cmake/prebuild.cmake</code> runs.</p>
+</blockquote>
+<h3 id="freertos-tasks">FreeRTOS Tasks</h3>
+<p>FreeRTOS is required for non-blocking operation, because
+<code>rs_nfc_reader_Read()</code> creates and runs the
+<code>RS_NFC</code> worker task.</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Task</th>
+<th>Created by</th>
+<th>Stack</th>
+<th>Priority</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>new_thread0</code></td>
+<td>FSP (static)</td>
+<td>1 KB</td>
+<td>1</td>
+<td>Calls <code>app_nfc_reader_entry()</code>, then suspends</td>
+</tr>
+<tr>
+<td>app_thread</td>
+<td>FSP (static)</td>
+<td>1 KB</td>
+<td>2</td>
+<td>Initializes servo lib, activates door lock upon NFC</td>
+</tr>
+<tr>
+<td><code>RS_NFC</code></td>
+<td><code>rs_nfc_reader_Read()</code></td>
+<td>4 KB (static)</td>
+<td>1</td>
+<td>Runs the full NFC event loop; self-deletes on stop</td>
+</tr>
+<tr>
+<td><code>IDLE</code></td>
+<td>FreeRTOS kernel</td>
+<td>512 B</td>
+<td>0</td>
+<td>Kernel idle task</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!NOTE] All task stacks are statically allocated —
+<code>configSUPPORT_STATIC_ALLOCATION</code> must be <code>1</code>. Do
+not reduce the <code>RS_NFC</code> stack below 4096 bytes; protocol and
+NDEF paths are deep.</p>
+</blockquote>
+<h3 id="heap">Heap</h3>
+<p>The project has two independent heaps:</p>
+<ul>
+<li><strong>FreeRTOS <code>heap_4</code></strong> —
+<code>configTOTAL_HEAP_SIZE</code> = 2048 bytes. Used by the kernel for
+dynamically created objects. All task stacks in this project are static,
+so it is lightly used.</li>
+<li><strong>BSP / picolibc heap</strong> —
+<code>config.bsp.common.heap</code> = 256 bytes. Serves the C library
+<code>malloc</code> (no <code>malloc</code> → <code>pvPortMalloc</code>
+aliasing is applied in this project). The NFC Reader PTX module requires
+this heap to be &gt; 0; <code>src/rs-console-io/</code> allocates its
+UART transmit buffer from it.</li>
+</ul>
+<p>Keep both values in mind when adding code — the
+<code>R7FA2E3073CFL</code> has 16 KB of SRAM and the current image
+already uses about 14 KB of <code>.bss</code>.</p>
+<hr />
+<h2 id="porting-to-your-own-hardware">Porting to Your Own Hardware</h2>
+<p>The application layer, the NFC module and the NDEF layer are portable
+as-is. Integration work is concentrated in
+<code>configuration.xml</code> and the two board-facing files.</p>
+<ol type="1">
+<li><strong>Select the target device</strong> in the
+<code>configuration.xml</code> BSP tab, then confirm against the device
+hardware manual that the peripherals listed in <a href="#mcu-peripherals">MCU Peripherals</a> are available and not
+claimed by another function.</li>
+<li><strong>Map the pins and channels</strong> to your schematic for SPI
+(MISO/MOSI/SCK/CS), the PTX IRQ, the reset GPIO and — if used — the
+console UART. Update the Stacks and Pins tabs, then regenerate: changing
+the SPI channel also requires reassigning the DTC transfer instances,
+and changing the IRQ pin regenerates the vector table and common
+data.</li>
+<li><strong>Import only the layers you need.</strong> Always required:
+<code>src/rs-nfc-card-reader/</code> including <code>ptx105r/</code>.
+Optional: <code>src/app/</code> and <code>src/rs-console-io/</code> —
+replace them with your own application and I/O if you do not want the
+demo behaviour. <code>src/rs-console-io/</code> is picolibc-specific
+(LLVM toolchain); it does not build with GCC/newlib. Never copy
+<code>ra/</code>, <code>ra_gen/</code> or <code>ra_cfg/</code> —
+generate them for your own project.</li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Signal</th>
+<th>What can change</th>
+<th>Where to update</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPI (MISO/MOSI/SCK/CS)</td>
+<td>Any SPI-capable SCI channel and pin group</td>
+<td><code>configuration.xml</code> — Stacks + Pins</td>
+</tr>
+<tr>
+<td>DTC transfer instances</td>
+<td>Must match the selected SPI channel’s transfer request lines</td>
+<td><code>configuration.xml</code> — Stacks</td>
+</tr>
+<tr>
+<td>PTX IRQ</td>
+<td>Any external-IRQ-capable pin</td>
+<td><code>configuration.xml</code> — Stacks + Pins; the adapter picks up
+<code>g_ext_irq</code> through <code>rs_nfc_ptx105r_board.h</code></td>
+</tr>
+<tr>
+<td>PTX reset</td>
+<td>Any GPIO output pin</td>
+<td><code>configuration.xml</code> — Pins</td>
+</tr>
+<tr>
+<td>Console UART</td>
+<td>Any UART-capable channel, or omit entirely</td>
+<td><code>configuration.xml</code>;
+<code>src/app/app_nfc_reader_log.c</code>,
+<code>src/rs-console-io/</code></td>
+</tr>
+<tr>
+<td>Timers</td>
+<td>Any two free GPT channels for the PTX timing services</td>
+<td><code>configuration.xml</code> — Stacks</td>
+</tr>
+</tbody>
+</table>
+<p><code>rs_nfc_ptx105r_board.h</code> is the integrator’s hook: it
+declares the external IRQ instance and the PTX GPIO ISR callback the
+adapter binds to. Point it at your own instance names if you rename
+them.</p>
+<p>When moving to a <strong>different RA device</strong>, also re-verify
+the clock configuration and the linker script, and confirm the flash
+budget — the PTX NFC stack is large.</p>
+<h3 id="integration-checklist">Integration Checklist</h3>
+<ul class="task-list">
+<li><label><input type="checkbox"></input>BSP device and package match your
+hardware.</label></li>
+<li><label><input type="checkbox"></input>SPI instance configured as master, 1
+MHz, CPOL=0, CPHA=0, MSB first, with an active-low GPIO chip
+select.</label></li>
+<li><label><input type="checkbox"></input>DTC/DMAC TX and RX instances enabled
+and matched to the SPI channel.</label></li>
+<li><label><input type="checkbox"></input>External IRQ instance configured on
+the PTX IRQ pin with rising-edge trigger.</label></li>
+<li><label><input type="checkbox"></input>Two GPT channels allocated for the
+PTX timing services.</label></li>
+<li><label><input type="checkbox"></input>Reset GPIO configured as an
+output.</label></li>
+<li><label><input type="checkbox"></input>UART instance present only if
+console output is needed; terminal baud matches the FSP
+setting.</label></li>
+<li><label><input type="checkbox"></input><code>configSUPPORT_STATIC_ALLOCATION = 1</code>,
+<code>configSUPPORT_DYNAMIC_ALLOCATION = 1</code>, and the FreeRTOS heap
+sized for your workload.</label></li>
+<li><label><input type="checkbox"></input>BSP heap
+(<code>config.bsp.common.heap</code>) &gt; 0 (see <a href="#heap">Heap</a>); on small-flash parts, carry over
+<code>-Oz</code> and
+<code>-Wl,--defsym=vfprintf=__l_vfprintf</code>.</label></li>
+<li><label><input type="checkbox"></input>Project links with no unresolved
+NFC, SPI, IRQ, DTC or UART symbols, and the image fits in
+flash.</label></li>
+</ul>
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<p>The module reports status through the <code>rs_status_t</code> enum
+in <code>rs_nfc_reader.h</code>.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Status</th>
+<th>Cause</th>
+<th>Recovery</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RS_OK</code></td>
+<td>Success</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>RS_ERR_TIMEOUT</code></td>
+<td>Card removed, or the polling window expired</td>
+<td>Continue polling / retry</td>
+</tr>
+<tr>
+<td><code>RS_ERR_INVALID_CFG</code></td>
+<td>Malformed <code>rs_nfc_reader_cfg_t</code></td>
+<td>Fix the offending fields; keep
+<code>cfg_valid_check_en = true</code></td>
+</tr>
+<tr>
+<td><code>RS_ERR_DEPENDENCY</code></td>
+<td>Lower PTX105R stack not ready, or <code>Stop()</code> called with no
+read in progress</td>
+<td>Verify the FSP stack configuration</td>
+</tr>
+<tr>
+<td><code>RS_ERR_NOT_FOUND</code></td>
+<td>Card is not NDEF-formatted</td>
+<td>Log and continue polling</td>
+</tr>
+<tr>
+<td><code>RS_ERR_BUFFER_OVERFLOW</code></td>
+<td>NDEF message larger than <code>max_ndef_bytes</code></td>
+<td>Increase <code>max_ndef_bytes</code> (≤
+<code>RS_NFC_NDEF_MAX_BYTES</code>)</td>
+</tr>
+<tr>
+<td><code>RS_ERR_INTERNAL</code></td>
+<td>Second non-blocking <code>Read()</code> while one is active,
+duplicate <code>Stop()</code>, or internal fault</td>
+<td>Stop the running read first; reset the PTX105R if it persists</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li><strong>Read-only</strong> — NDEF write and erase are not
+implemented for any tag type.</li>
+<li><strong>SPI transport only</strong> — validated with SCI in SPI
+mode; dedicated SPI peripherals are not supported in this release.</li>
+<li><strong>One card per cycle</strong> — only a single card can be
+activated per read cycle.</li>
+<li><strong>NDEF size</strong> — capped by
+<code>RS_NFC_NDEF_MAX_BYTES</code> (512) and by on-tag memory; up to 8
+records are decoded.</li>
+<li><strong>Single active read</strong> — only one non-blocking
+<code>Read()</code> may be in flight at a time.</li>
+<li><strong>ISO 15693</strong> — basic detection and NDEF read; advanced
+features (AFI, DSFID) are not implemented.</li>
+</ul>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><strong>No cards detected</strong> - Verify the PTX105R 3.3 V supply
+and antenna connection. - Confirm the SPI pins, chip select and IRQ pin
+match <code>configuration.xml</code> and your schematic. - Check the
+return code of <code>rs_nfc_ptx_start_discovery()</code> in the
+debugger.</p>
+<p><strong>Console output missing</strong> - Confirm the terminal baud
+matches the FSP UART setting (230400 8N1 by default). - Confirm the UART
+instance exists in the FSP stack and the correct port is open.</p>
+<p><strong>Build fails with a flash overflow</strong> - Confirm the
+<code>-Oz</code> override and the <code>vfprintf=__l_vfprintf</code>
+link option are still in <code>CMakeLists.txt</code>; RASC overwrites
+flags placed in <code>cmake/GeneratedCfg.cmake</code>.</p>
+<p><strong>Intermittent read failures</strong> - Increase
+<code>cfg.timeout_ms</code> for slower cards, and check the antenna
+tuning and card distance.</p>
+<p><strong>Stack overflow or hard fault under load</strong> - Do not
+reduce the <code>RS_NFC</code> task stack below 4096 bytes, and leave
+headroom in the FreeRTOS heap.</p>
+<hr />
+<h2 id="references">References</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Document</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.renesas.com/en/products/ptx105r">PTX105R
+product page</a></td>
+<td>Mid-power, multi-protocol NFC Forum compliant reader</td>
+</tr>
+<tr>
+<td><a href="https://www.renesas.com/en/document/dst/ptx105r-datasheet">PTX105R
+datasheet</a></td>
+<td>Electrical and RF specifications</td>
+</tr>
+<tr>
+<td><a href="https://renesas.github.io/fsp/">Renesas FSP
+documentation</a></td>
+<td>API reference for all FSP modules used</td>
+</tr>
+<tr>
+<td><a href="https://www.renesas.com/en/software-tool/ra-smart-configurator">RA
+Smart Configurator</a></td>
+<td>FSP configuration and code generation tool</td>
+</tr>
+<tr>
+<td><a href="https://www.renesas.com/en/software-tool/e2-studio">e²
+studio</a></td>
+<td>Renesas IDE user guide and downloads</td>
+</tr>
+<tr>
+<td><a href="https://www.segger.com/products/debug-probes/j-link/tools/j-link-software/">J-Link
+software</a></td>
+<td>SEGGER debug probe tools</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Support</strong></p>
+<ul>
+<li><a href="https://community.renesas.com/wireles-connectivity">Renesas
+Wireless Connectivity Forum</a></li>
+<li><a href="https://www.renesas.com/support">Technical Support</a></li>
+</ul>
+</body>
+</html>
