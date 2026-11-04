@@ -5,6 +5,8 @@ PTX105R NFC front-end. The NFC workflow — discovery, activation, NDEF read, ca
 deactivation — is fully encapsulated in a reusable module with a two-function public API, so the
 application never touches the PTX SDK.
 
+![NFC Doorlock System Block Diagram](./images/NFC_Doorlock_System_BlockDiagram.jpg)
+
 | | |
 |---|---|
 | **NFC IC** | PTX105R — ISO 14443-A/B · NFC-F (FeliCa) · ISO 15693 |
