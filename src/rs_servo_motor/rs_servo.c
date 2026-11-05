@@ -115,11 +115,10 @@ fsp_err_t rs_servo_Open(servo_ctrl_t *p_servo_ctrl, const servo_device_cfg_t *p_
     err = R_GPT_Start(&g_pwm_sg90_ctrl);
     ERR_CHECK(err);
 
-    volatile timer_info_t info                       = {(timer_direction_t)0x00u, 0x00u, 0x00u};
+    timer_info_t info                       = {(timer_direction_t)0x00u, 0x00u, 0x00u};
     /* Get the current period setting. */
     err = R_GPT_InfoGet(&g_pwm_sg90_ctrl, &info);
     ERR_CHECK(err);
-    uint32_t period_counts_current = info.period_counts;
 
     /* Mark the servo control instance as open. */
     p_servo_ctrl->open = true;
@@ -139,25 +138,25 @@ fsp_err_t rs_servo_WriteAngle( servo_ctrl_t *p_servo_ctrl, int16_t angle)
     FSP_ERROR_RETURN(NULL != p_servo_ctrl->p_device, FSP_ERR_INVALID_POINTER);
     FSP_ERROR_RETURN(true == p_servo_ctrl->open, FSP_ERR_NOT_OPEN);
 
-    volatile int16_t min_angle = p_servo_ctrl->p_device->minimum_angle;
-    volatile int16_t max_angle = p_servo_ctrl->p_device->maximum_angle;
+    int16_t min_angle = p_servo_ctrl->p_device->minimum_angle;
+    int16_t max_angle = p_servo_ctrl->p_device->maximum_angle;
 
     FSP_ERROR_RETURN(angle >= min_angle, FSP_ERR_INVALID_ARGUMENT);
     FSP_ERROR_RETURN(angle <= max_angle, FSP_ERR_INVALID_ARGUMENT);
 
     /* Calculate the number of counts for the new duty cycle. */
-    volatile uint16_t angle_range_counts = (uint16_t) (max_angle - min_angle);
-    volatile uint32_t duty_range_counts  = p_servo_ctrl->max_duty_counts - p_servo_ctrl->min_duty_counts;
+    uint16_t angle_range_counts = (uint16_t) (max_angle - min_angle);
+    uint32_t duty_range_counts  = p_servo_ctrl->max_duty_counts - p_servo_ctrl->min_duty_counts;
 
     /* Normalize angle minimum to 0. */
-    volatile uint32_t adjusted_angle = (uint32_t) (angle - min_angle);
+    uint32_t adjusted_angle = (uint32_t) (angle - min_angle);
 
     if (SERVO_DIRECTION_REVERSE == p_servo_ctrl->p_device->direction)
     {
         adjusted_angle = angle_range_counts - adjusted_angle;
     }
 
-    volatile uint32_t pulse_counts = (p_servo_ctrl->min_duty_counts +
+    uint32_t pulse_counts = (p_servo_ctrl->min_duty_counts +
                             (uint32_t) (( (uint64_t)adjusted_angle * duty_range_counts) / angle_range_counts ))/CLK_DIV_SERVO;
 
     /* Set the new duty cycle. */
@@ -193,9 +192,6 @@ fsp_err_t rs_servo_WritePercent(servo_ctrl_t * p_servo_ctrl, uint8_t percent)
             (uint32_t)(((uint64_t) adjusted_percent * duty_range_counts) / RS_SERVO_MAX_PERCENTAGE);
 
     FSP_ERROR_RETURN(pulse_counts < p_servo_ctrl->period_counts, FSP_ERR_INVALID_ARGUMENT);
-
-    /* Set the new duty cycle. */
-    // err = p_servo_ctrl->timer.p_api->dutyCycleSet(p_servo_ctrl->timer.p_ctrl, pulse_counts, p_servo_ctrl->pin_out);
 
     return err;
 }
@@ -289,18 +285,12 @@ fsp_err_t rs_servo_calculate_onetime_values(servo_ctrl_t *p_servo_ctrl)
 {
 
     fsp_err_t err = FSP_SUCCESS;
-    volatile timer_info_t timer_info, info;
+    timer_info_t timer_info, info;
     memset(&timer_info, 0, sizeof(timer_info_t));
 
     /* Check parameters. */
     FSP_ERROR_RETURN(NULL != p_servo_ctrl, FSP_ERR_INVALID_POINTER);
     FSP_ERROR_RETURN(NULL != p_servo_ctrl->p_device, FSP_ERR_INVALID_POINTER);
-
-    // err = R_GPT_PeriodSet(p_servo_ctrl->timer.p_ctrl, 0x3000001);
-    // if (err)
-    // {
-    //     __BKPT(0);
-    // }  
 
     /* Set the total counts per period. */
     err = p_servo_ctrl->timer.p_api->infoGet(p_servo_ctrl->timer.p_ctrl, &timer_info);
@@ -316,14 +306,8 @@ fsp_err_t rs_servo_calculate_onetime_values(servo_ctrl_t *p_servo_ctrl)
     ERR_CHECK(err);
 
     /* Set the min and max counts based on the specified min/max microsecond values in the servo cfg. */
-    volatile uint32_t min_duty_count = (uint32_t) ((((uint64_t) p_servo_ctrl->p_device->minimum_microseconds) *
-                                 timer_info.clock_frequency) / RS_SERVO_US_PER_SECOND);
-
     p_servo_ctrl->min_duty_counts = (uint32_t) ((((uint64_t) p_servo_ctrl->p_device->minimum_microseconds) *
                                  timer_info.clock_frequency) / RS_SERVO_US_PER_SECOND);
-
-    volatile uint32_t max_duty_counts =  (uint32_t) ((((uint64_t) p_servo_ctrl->p_device->maximum_microseconds) *
-                                 timer_info.clock_frequency) / RS_SERVO_US_PER_SECOND);          
 
     p_servo_ctrl->max_duty_counts = (uint32_t) ((((uint64_t) p_servo_ctrl->p_device->maximum_microseconds) *
                                  timer_info.clock_frequency) / RS_SERVO_US_PER_SECOND);
